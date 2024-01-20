@@ -13,6 +13,11 @@ db.once('open', () => console.log('Connected to Database'))
 
 app.use(express.json())
 
+app.get('/', (req, res) => {
+    res.send('Successful deployment!')
+})
+
+
 const messageRouter = require('./routes/messages')
 app.use('/messages', messageRouter)
 
