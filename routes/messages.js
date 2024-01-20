@@ -42,6 +42,18 @@ router.get('/:id', async (req, res) => {
 })
 
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const userMessage = await usermessages.findOne({ id: req.params.id })
+        if (!userMessage) {
+            return res.status(404).json({ message: 'User message not found' })
+        }
+        await usermessages.deleteOne({ id: req.params.id })
+        res.status(200).json({ message: 'User deleted successfully' })
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+})
 
 
 
