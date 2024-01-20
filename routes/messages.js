@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 
 const usermessages = require('../models/usermessages')
+router.get('/', (req, res) => {
+    res.send('Successful connection to the server')
+})
 
 
 router.post('/', async (req, res) => {
