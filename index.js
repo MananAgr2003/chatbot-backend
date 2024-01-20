@@ -3,8 +3,11 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const cors = require('cors') // Import the cors module
 
-const mongodb = "mongodb+srv://agrawalmanan2:12312312@chatbot.fljqvmv.mongodb.net/usermessages"
+app.use(cors()) // Enable CORS for all routes
+
+
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
 const db = mongoose.connection
